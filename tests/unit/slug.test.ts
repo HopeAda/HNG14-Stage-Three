@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getHabitSlug } from "../../lib/slug";
+import { getHabitSlug } from "@/lib/slug";
 import "@testing-library/jest-dom";
 
 describe("getHabitSlug", () => {
