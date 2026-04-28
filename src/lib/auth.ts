@@ -5,8 +5,11 @@ export function signup(
 	email: string,
 	password: string,
 ): { success: true; session: Session } | { success: false; error: string } {
-	const users = getUserList();
+	if (email.trim() == "" || password.trim() == "") {
+		return { success: false, error: "Email and Password are required" };
+	}
 
+	const users = getUserList();
 	if (users.find((itm) => itm.email === email)) {
 		return { success: false, error: "User already exists" };
 	}
