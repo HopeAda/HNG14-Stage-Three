@@ -1,0 +1,53 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+@import "tailwindcss";
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: "League Spartan", sans-serif;
+}
+
+body {
+	font-family: sans-serif;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	padding: 2rem 1rem;
+	/* background-color: #f8f8f8; */
+	background-image: linear-gradient(
+		to top right,
+		var(--color-pink-300) 10%,
+		var(--color-blue-200)
+	);
+	align-items: center;
+	justify-content: center;
+}
+
+.form-card {
+	@apply flex flex-col justify-start w-full h-fit max-w-sm items-start p-6 rounded-xl gap-2 bg-white md:max-w-xl;
+}
+
+.form-element {
+	@apply flex flex-col justify-center items-start gap-4 w-full;
+}
+
+.form-item {
+	@apply flex flex-col justify-center items-start gap-1 w-full;
+}
+
+.form-input {
+	@apply w-full border outline-none border-gray-400 px-4 rounded-md text-sm  focus:ring focus:ring-blue-500 focus-visible:border-transparent h-10 font-semibold;
+}
+
+.form-input:has(input:focus) {
+	@apply ring ring-blue-500 border-none;
+}
+
+.form-label {
+	@apply text-[12px] font-medium;
+}
