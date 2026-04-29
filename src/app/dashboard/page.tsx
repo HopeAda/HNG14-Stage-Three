@@ -67,7 +67,7 @@ export default function Dashboard() {
 						</span>
 					</div>
 					<button
-						className="w-fit flex justify-center items-center bg-blue-200 cursor-pointer text-white text-sm font-semibold px-2! py-1! rounded-3xl hover:bg-blue-400"
+						className="w-fit flex justify-center items-center bg-blue-500 cursor-pointer text-white text-sm font-semibold px-2! py-1! rounded-3xl hover:bg-blue-400"
 						onClick={() => {
 							logout();
 							router.push("/login");
