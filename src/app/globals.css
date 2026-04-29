@@ -17,15 +17,20 @@ body {
 	width: 100%;
 	min-height: 100vh;
 	display: flex;
-	padding: 2rem 1rem;
-	/* background-color: #f8f8f8; */
-	background-image: linear-gradient(
+	padding: 1rem;
+	background-color: #f8f8f8;
+	/* background-image: linear-gradient(
 		to top right,
 		var(--color-pink-300) 10%,
 		var(--color-blue-200)
-	);
+	); */
 	align-items: center;
 	justify-content: center;
+}
+
+body:has(#habit-form-modal),
+body:has(#delete-modal) {
+	overflow: hidden;
 }
 
 .form-card {
