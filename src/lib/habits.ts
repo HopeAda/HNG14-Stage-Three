@@ -1,4 +1,4 @@
-import { Habit } from "../types/habit";
+import { Habit, Frequency } from "../types/habit";
 import { getHabits, getUserSession, saveHabits } from "./storage";
 
 export function toggleHabitCompletion(habit: Habit, date: string): Habit {
@@ -17,13 +17,14 @@ export function toggleHabitCompletion(habit: Habit, date: string): Habit {
 export function createHabit(name: string, description: string): Habit {
 	const currentUser = getUserSession();
 	if (!currentUser) throw new Error("No session");
+	const frequency: Frequency = "daily";
 
 	const habit = {
 		id: crypto.randomUUID(),
 		userId: currentUser.userId,
 		name: name,
 		description: description,
-		frequency: "daily",
+		frequency: frequency,
 		createdAt: new Date().toISOString(),
 		completions: [],
 	};

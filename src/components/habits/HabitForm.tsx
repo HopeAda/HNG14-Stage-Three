@@ -23,7 +23,7 @@ export default function HabitForm({ setOpen }: FormProviderProps) {
 
 		const focusableElement = Array.from(
 			modalRef.current.querySelectorAll("input, button"),
-		);
+		) as HTMLElement[];
 
 		const firstElement = focusableElement[0];
 		const last = focusableElement[focusableElement.length - 1];
