@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import "./globals.css";
+import PWARegister from "./PWARegister";
 
-export const metadata: Metadata = {
-	title: "Habit Tracker",
-	description: "Track your daily habits",
-};
+// export const metadata: Metadata = {
+// 	title: "Habit Tracker",
+// 	description: "Track your daily habits",
+// };
 
 export default function RootLayout({
 	children,
@@ -13,7 +14,13 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body>{children}</body>
+			<head>
+				<link rel="manifest" href="/manifest.json" />
+			</head>
+			<body>
+				<PWARegister />
+				{children}
+			</body>
 		</html>
 	);
 }
