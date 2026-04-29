@@ -146,6 +146,7 @@ export default function HabitForm({ setOpen }: FormProviderProps) {
 				onClick={(e) => {
 					e.stopPropagation();
 				}}
+				data-testid="habit-form"
 			>
 				<h2 className="text-2xl font-semibold mb-3!">
 					{mode == "add" ? "Create Habit" : "Edit Habit"}
@@ -240,7 +241,7 @@ export default function HabitForm({ setOpen }: FormProviderProps) {
 
 						<button
 							className="text-white text-lg font-medium bg-blue-500 rounded-md p-1! cursor-pointer hover:bg-blue-400 px-2!"
-							data-testid="habit-save-button"
+							data-testid={"habit-save-button"}
 						>
 							{mode === "add" ? "Create Habit" : "Save Changes"}
 						</button>

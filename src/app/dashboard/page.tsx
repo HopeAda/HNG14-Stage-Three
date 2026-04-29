@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { deleteHabit, getUserHabits } from "@/lib/habits";
 import { createContext } from "react";
 import { Habit } from "@/types/habit";
+import { getUserSession } from "@/lib/storage";
 
 type DataContextType = {
 	habitsList: Habit[];
@@ -24,6 +25,9 @@ export const DataContext = createContext<DataContextType | null>(null);
 
 export default function Dashboard() {
 	const router = useRouter();
+
+	const session = getUserSession();
+	if (!session) router.push("/login");
 
 	const today = new Date().toISOString().split("T")[0];
 
@@ -104,6 +108,7 @@ export default function Dashboard() {
 							onClick={() => {
 								setFormModalOpen(true);
 							}}
+							data-testid="create-habit-button"
 						>
 							<span className="rounded-full bg-white w-6 h-6  text-lg flex justify-center items-center text-black fill-blue-500">
 								<svg
