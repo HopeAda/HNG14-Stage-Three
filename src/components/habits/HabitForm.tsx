@@ -53,7 +53,7 @@ export default function HabitForm({ setOpen }: FormProviderProps) {
 		return () => {
 			document.removeEventListener("keydown", handleTab);
 		};
-	});
+	}, []);
 
 	const mode = ctx?.selectedHabitId ? "edit" : "add";
 
