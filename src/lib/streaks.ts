@@ -16,6 +16,17 @@ export function calculateCurrentStreak(
 	let streak = 0;
 	const current = new Date(thisDayString);
 
+	// const startDay = sortedSet.has(thisDayString)
+	// 	? new Date(thisDayString)
+	// 	: new Date(
+	// 			new Date(thisDayString).setDate(
+	// 				new Date(thisDayString).getDate() - 1,
+	// 			),
+	// 		);
+
+	// let streak = 0;
+	// const current = new Date(startDay);
+
 	while (true) {
 		const dateCurrent = current.toISOString().split("T")[0];
 
