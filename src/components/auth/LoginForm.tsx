@@ -12,6 +12,10 @@ export default function LoginForm() {
 		email: "",
 		password: "",
 	});
+	const [error, setError] = useState({
+		errorExists: false,
+		errorMsg: "",
+	});
 
 	const submitHandler = (e: React.SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -22,7 +26,10 @@ export default function LoginForm() {
 			saveSession(loginResult.session);
 			router.push("/dashboard");
 		} else {
-			alert(loginResult.error);
+			setError({
+				errorExists: !loginResult.success,
+				errorMsg: loginResult.error,
+			});
 		}
 	};
 
@@ -47,6 +54,7 @@ export default function LoginForm() {
 								email: e.target.value,
 							}));
 						}}
+						autoComplete="off"
 					/>
 				</div>
 				<div className="form-item">
@@ -70,6 +78,7 @@ export default function LoginForm() {
 									password: e.target.value,
 								}));
 							}}
+							autoComplete="off"
 						/>
 						<span
 							onClick={() => {
@@ -81,6 +90,13 @@ export default function LoginForm() {
 						</span>
 					</div>
 				</div>
+				{error.errorExists ? (
+					<span className="text-sm text-red-400">
+						{error.errorMsg}
+					</span>
+				) : (
+					""
+				)}
 				<button
 					className="bg-blue-500 text-white font-semibold w-full  rounded-md cursor-pointer py-1.5! px-2 hover:bg-blue-400"
 					data-testid="auth-login-submit"
