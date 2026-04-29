@@ -1,12 +1,21 @@
 import { getUserList, saveUsers, saveSession, clearSession } from "./storage";
 import { Session } from "@/types/auth";
 
+function isValidEmail(email: string): boolean {
+	return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 export function signup(
 	email: string,
 	password: string,
 ): { success: true; session: Session } | { success: false; error: string } {
 	if (email.trim() == "" || password.trim() == "") {
 		return { success: false, error: "Email and Password are required" };
+	}
+
+	// ✅ added validation
+	if (!isValidEmail(email)) {
+		return { success: false, error: "Invalid email format" };
 	}
 
 	const users = getUserList();
@@ -36,6 +45,12 @@ export function login(
 	password: string,
 ): { success: true; session: Session } | { success: false; error: string } {
 	const users = getUserList();
+
+	// ✅ added validation
+	if (!isValidEmail(email)) {
+		return { success: false, error: "Invalid email format" };
+	}
+
 	const foundUser = users.find(
 		(itm) => itm.email === email && itm.password === password,
 	);
