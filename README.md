@@ -349,3 +349,11 @@ tests/
 ## Live Demo
 
 https://hng-14-stage-three.vercel.app/
+
+## Coverage Report
+
+![alt text](image.png)
+
+## Playright Test Result
+
+![alt text](image-1.png)
